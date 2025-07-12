@@ -117,7 +117,10 @@
         };
         
         updateButtonText();
-        window.perfMon.button = button;
+      // Uložíme referenci pro programové ovládání (až po vytvoření perfMon)
+        if (window.perfMon) {
+            window.perfMon.button = button;
+        }
     }
     
     // Proměnné pro interval
