@@ -2696,92 +2696,7 @@ async function deletePortfolioItem(itemIdToDelete) {
 }
 
 
-// --- Pomocný script pro správu viditelnosti tlačítek ---
-(function() {
-    'use strict';
-
-    function hideDataManagementButtons() {
-        const container = document.querySelector('.function-setupDataManagement');
-        if (container) {
-            container.style.display = 'none';
-        }
-    }
-
-    function showDataManagementButtons() {
-        const container = document.querySelector('.function-setupDataManagement');
-        if (container) {
-            container.style.display = 'flex';
-        }
-    }
-
-    function applyBaseVisualStyles() {
-        const container = document.querySelector('.function-setupDataManagement');
-        const innerContainer = document.querySelector('.function-setupDataManagement .data-management-container');
-        const buttons = document.querySelectorAll('.function-setupDataManagement .button');
-        const logoutBtn = document.getElementById('logout-button');
-
-        if (container) {
-            container.style.cssText = `
-                justify-content: center !important;
-                border: 1px solid rgba(255, 255, 255, 0.2) !important;
-                border-radius: 10px !important;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
-            `;
-        }
-
-        if (innerContainer) {
-            innerContainer.style.cssText = `
-                justify-content: center !important;
-                flex-wrap: wrap !important;
-            `;
-        }
-
-        const baseButtonVisuals = `
-            text-decoration: none !important;
-            transition: all 0.3s ease !important;
-            background: rgba(255, 255, 255, 0.1) !important;
-            backdrop-filter: blur(5px) !important;
-            -webkit-backdrop-filter: blur(5px) !important;
-            border: none !important;
-            cursor: pointer !important;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
-            border-radius: 10px !important;
-        `;
-
-        const baseColorStyles = {
-            saveBtn: `color: white !important;`,
-            clearBtn: `color: red !important;`,
-            exportBtn: `color: white !important;`,
-            importBtn: `color: white !important;`,
-            logoutBtn: `color: red !important;`,
-            jirikBtn: `color: white !important;`
-        };
-
-        if (document.getElementById('save-all-data-btn')) {
-            document.getElementById('save-all-data-btn').style.cssText = baseButtonVisuals + baseColorStyles.saveBtn;
-        }
-        if (document.getElementById('clear-all-data-btn')) {
-            document.getElementById('clear-all-data-btn').style.cssText = baseButtonVisuals + baseColorStyles.clearBtn;
-        }
-        if (document.getElementById('export-data-btn')) {
-            document.getElementById('export-data-btn').style.cssText = baseButtonVisuals + baseColorStyles.exportBtn;
-        }
-        if (document.getElementById('import-data-btn')) {
-            document.getElementById('import-data-btn').style.cssText = baseButtonVisuals + baseColorStyles.importBtn;
-        }
-        if (document.getElementById('jirik-manual-opener-btn')) {
-            document.getElementById('jirik-manual-opener-btn').style.cssText = baseButtonVisuals + baseColorStyles.jirikBtn;
-        }
-        if (logoutBtn) {
-            logoutBtn.style.cssText = `
-                padding: 0.1rem 1rem !important;
-                ${baseButtonVisuals}
-                ${baseColorStyles.logoutBtn}
-            `;
-        }
-    }
-
-    function applyDataManagementResponsiveStyles() {
+function applyDataManagementResponsiveStyles() {
     const container = document.querySelector('.function-setupDataManagement');
     const innerContainer = document.querySelector('.function-setupDataManagement .data-management-container');
     const buttons = document.querySelectorAll('.function-setupDataManagement .button');
@@ -2911,8 +2826,7 @@ function observeEditMode() {
             }
         });
     });
-   // <--- Tato závorka uzavírá funkci observeEditMode(), přesně podle tvého zadání.
-
+  // <--- Tato závorka uzavírá funkci observeEditMode(), přesně podle tvého zadání.
         observer.observe(body, {
             attributes: true,
             attributeFilter: ['class']
